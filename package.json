@@ -1,0 +1,29 @@
+{
+  "name": "matrix.notification.service",
+  "version": "1.0.0",
+  "description": "Matrix's notification service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhatlx159/Matrix.Notification.Service.git"
+  },
+  "author": "Vermillion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nhatlx159/Matrix.Notification.Service/issues"
+  },
+  "homepage": "https://github.com/nhatlx159/Matrix.Notification.Service#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.4",
+    "node": "^21.2.0",
+    "nodemailer": "^6.9.8"
+  }
+}
