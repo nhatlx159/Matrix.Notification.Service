@@ -10,7 +10,7 @@ dotenv.config()
 const port = process.env.PORT || 3000
 const app = express()
 // conn db
-const dbConnect = ()=> {
+const dbConnect = () => {
     try {
         mongoose.connect(process.env.MONGODB_URL);
         console.log("connect success!!");
@@ -24,11 +24,11 @@ app.use(cors())
 app.use(express.json())
 app.use(cookieParser())
 
-app.use("/auth", authRoute)
-app.use("/order", orderRoute)
+app.use("/", authRoute)
+// app.use("/auth", authRoute)
+// app.use("/order", orderRoute)
 
 app.listen(port, () => {
     dbConnect()
     console.log(`Example app listening on port ${port}`)
-  })
-  
+})
