@@ -15,14 +15,14 @@ const authController = {
                 code: code,
                 expired_time: parseInt(Date.now() + 900000)
             })
-            var transporter =  nodemailer.createTransport({ // config mail server
+            var transporter =  nodemailer.createTransport({
                 service: 'Gmail',
                 auth: {
                     user: process.env.BUSINESS_EMAIL,
                     pass: process.env.BUSINESS_EMAIL_PASSWORD
                 }
             });
-            var mainOptions = { // thiết lập đối tượng, nội dung gửi mail
+            var mainOptions = { 
                 from: "MATRIX'S STAFF vermillion_ft.matrix@gmail.com",
                 to: req.body.email,
                 subject: 'Matrix: Verify code for registering',
@@ -39,13 +39,24 @@ const authController = {
                     res.status(200).json({verifyCode: verifyCode, response: info.response});
                 }
             });
-
-
-            
         } catch (error) {
             res.status(500).json("Server error", error)
         }
-
+    },
+    confirmRegisterVerifyCode: async(req, res)=> {
+        try {
+            const result = await verifyCode.find({code: req.body.code})
+            for (let i = 0; i < result.length; i++) {
+                const ele = result[i];
+                if((ele.expired_time > Date.now()) && (req.body.email === ele.emailRequest)){
+                    return res.status(200).json(result);
+                }
+                continue;
+            }
+            return res.status(404).json({any: "Not found verify code or code invalid!!"});
+        } catch (error) {
+            res.status(500).json("Server error", error)
+        }
     }
 }
 
