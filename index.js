@@ -20,5 +20,5 @@ app.use("/v1/verify", authRoute)
 
 app.listen(port, () => {
     dbConnect()
-    console.log(`Example app listening on port ${port}`)
+    console.log(`Notification service running on port: ${port}`)
 })

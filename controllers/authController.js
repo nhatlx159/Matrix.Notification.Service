@@ -62,7 +62,7 @@ const authController = {
     },
     confirmLoginOnNewDevice: async (req, res) => {
         try {
-            const isExisted = await axios(`http://localhost:3000/v1/auth/findaccount/${req.body.email}`)
+            const isExisted = await axios(`http://localhost:8080/v1/auth/findaccount/${req.body.email}`)
             if(!isExisted) {
                 console.log("Tài khoản chưa được đăng ký");
                 return res.status(404).json({any: "Tài khoản chưa được khởi tạo"})
