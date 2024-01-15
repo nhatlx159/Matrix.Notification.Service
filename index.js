@@ -9,15 +9,12 @@ const dbConnect = require('./connectDb')
 dotenv.config()
 const port = process.env.PORT || 3000
 const app = express()
-// conn db
-
-
 
 app.use(cors())
 app.use(express.json())
 app.use(cookieParser())
 
-app.use("/", authRoute)
+app.use("/v1/verify", authRoute)
 // app.use("/auth", authRoute)
 // app.use("/order", orderRoute)
 
