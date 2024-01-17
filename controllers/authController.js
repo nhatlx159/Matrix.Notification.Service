@@ -8,6 +8,7 @@ const typeVerify = require('../utils/typeVerifycode')
 const nodemailer = require('nodemailer');
 
 const authController = {
+    //Send verify code for user
     registerSendCode: async (req, res) => {
         try {
             const code = Math.floor(Math.random() * (999999 - 100000) + 100000);
@@ -45,6 +46,7 @@ const authController = {
             res.status(500).json("Server error", error)
         }
     },
+    // Confirm Verify code from user
     confirmRegisterVerifyCode: async (req, res) => {
         try {
             const result = await verifyCode.find({ code: req.body.code })
@@ -60,6 +62,7 @@ const authController = {
             res.status(500).json("Server error", error)
         }
     },
+    // Confirm login on new Device
     confirmLoginOnNewDevice: async (req, res) => {
         try {
             const isExisted = await axios(`http://localhost:8080/v1/auth/findaccount/${req.body.email}`)
