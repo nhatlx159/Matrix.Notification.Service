@@ -15,8 +15,6 @@ app.use(express.json())
 app.use(cookieParser())
 
 app.use("/v1/verify", authRoute)
-// app.use("/auth", authRoute)
-// app.use("/order", orderRoute)
 
 app.listen(port, () => {
     dbConnect()
