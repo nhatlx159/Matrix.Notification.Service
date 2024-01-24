@@ -20,3 +20,4 @@ app.listen(port, () => {
     dbConnect()
     console.log(`Notification service running on port: ${port}`)
 })
+
