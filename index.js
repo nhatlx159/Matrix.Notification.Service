@@ -16,6 +16,7 @@ app.use(cookieParser())
 
 app.use("/v1/verify", authRoute)
 
+// Open on port
 app.listen(port, () => {
     dbConnect()
     console.log(`Notification service running on port: ${port}`)
