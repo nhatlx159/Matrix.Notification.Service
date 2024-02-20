@@ -8,6 +8,7 @@ const typeVerify = require('../utils/typeVerifycode')
 const nodemailer = require('nodemailer');
 
 const authController = {
+
     //Send verify code for user
     registerSendCode: async (req, res) => {
         try {
@@ -46,6 +47,7 @@ const authController = {
             res.status(500).json("Server error", error)
         }
     },
+
     // Confirm Verify code from user
     confirmRegisterVerifyCode: async (req, res) => {
         try {
@@ -62,6 +64,7 @@ const authController = {
             res.status(500).json("Server error", error)
         }
     },
+    
     // Confirm login on new Device
     confirmLoginOnNewDevice: async (req, res) => {
         try {
