@@ -71,7 +71,7 @@ const authController = {
             const isExisted = await axios(`http://localhost:8080/v1/auth/findaccount/${req.body.email}`)
             if(!isExisted) {
                 console.log("Tài khoản chưa được đăng ký");
-                return res.status(404).json({any: "Tài khoản chưa được khởi tạo"})
+                return res.status(404).json({any: "Tài khoản chưa được khởi tạo!!"})
             }
             var transporter = nodemailer.createTransport({
                 service: 'Gmail',
@@ -90,7 +90,7 @@ const authController = {
             transporter.sendMail(mainOptions, async (err, info) => {
                 if (err) {
                     console.log(err);
-                    res.status(500).json({any: "Loi server"});
+                    res.status(500).json({any: "Loi server!!"});
                 } else {
                     console.log('Message sent: ' + info.response);
                     res.status(200).json({ verifyCode: verifyCode, response: info.response });
