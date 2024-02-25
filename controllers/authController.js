@@ -64,7 +64,6 @@ const authController = {
             res.status(500).json("Server error", error)
         }
     },
-    
     // Confirm login on new Device
     confirmLoginOnNewDevice: async (req, res) => {
         try {
