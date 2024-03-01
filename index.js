@@ -14,7 +14,7 @@ app.use(cors())
 app.use(express.json())
 app.use(cookieParser())
 
-app.use("/v1/verify", authRoute)
+app.use("/api/notify/v1/verify", authRoute)
 
 // Open on port
 app.listen(port, () => {
